@@ -63,6 +63,12 @@
                 const isUse = childData.useCode==1 ? "<span class='text-primary'>입장완료</span>" : "<span class='text-danger'>입장 전</span>";
                 document.getElementById('use_'+childData.id).innerHTML = isUse;
 
+                var enterTime = document.createElement('div');
+                var enterTimeText = document.createTextNode(childData.useTime);
+                enterTime.appendChild(enterTimeText);
+                enterTime.setAttribute('class', 'text-danger');
+                document.getElementById('div_'+childData.id).appendChild(enterTime);
+
 
                 /*
                 var todoBtn = document.createElement('button');
