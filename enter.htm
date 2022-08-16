@@ -30,13 +30,12 @@
         submit.addEventListener('click', (e)=>{
             if(document.getElementById('name').value && document.getElementById('phoneNumber').value){
                 get(child(ref(database), '/'+document.getElementById('phoneNumber').value)).then((snapshot)=>{
-                    if(snapshot.exists() && snapshot.val().name==document.getElementById('name').value){
+                    if(snapshot.exists() && snapshot.val().name==document.getElementById('name').value && snapshot.val().useCode==0){
                         var qrcode = new QRCode(document.getElementById('div_qrcode'), {
                             width: 200,
                             height: 200
                         });
                         qrcode.makeCode("https://poic6.github.io/firebase/enterqr.htm?id="+snapshot.val().id);
-                        console.log(snapshot.val().id);
                     }
                     else{
                         alert('입력한 정보와 일치하는 예약내역이 없습니다.');
