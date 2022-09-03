@@ -43,7 +43,7 @@
                         reservation.push(childSnapshot.val());
                     });
                     if(reservation[0].useCode===1){
-                        document.getElementById('result').innerHTML = "이미 사용한 QR코드 입니다.";
+                        document.getElementById('result').innerHTML = "<h1 class='text-danger fw-bold'>이미 사용한 QR코드 입니다.</h1>";
                     }
                     else{
                         let today = new Date();
